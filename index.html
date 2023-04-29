@@ -31,7 +31,7 @@
         
         // 会心計算
         var is_critical = Math.random() < crit_rate;
-        var crit_damage_multiplier = is_critical ? crit_damage : 1;
+        var crit_damage_multiplier = is_critical ? 1+crit_damage : 1;
         
         // 属性ダメージボーナスを適用
         var final_damage = base_damage * crit_damage_multiplier * (1 + elemental_bonus / 100);
