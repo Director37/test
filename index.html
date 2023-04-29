@@ -2,73 +2,21 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>計算機</title>
-    <style>
-      .container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-      }
-      .button {
-        width: 50px;
-        height: 50px;
-        font-size: 20px;
-        margin: 5px;
-        background-color: #f2f2f2;
-        border: none;
-        border-radius: 5px;
-        box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-        cursor: pointer;
-      }
-      .button:hover {
-        background-color: #e6e6e6;
-      }
-      .input {
-        width: 210px;
-        height: 50px;
-        font-size: 20px;
-        text-align: right;
-        margin: 5px;
-        background-color: #fff;
-        border: none;
-        border-radius: 5px;
-        box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-        padding: 5px;
-      }
-    </style>
+    <title>1を指定回数足し続ける</title>
   </head>
   <body>
-    <div class="container">
-      <input type="text" id="input" class="input" disabled>
-      <button class="button" onclick="input('7')">7</button>
-      <button class="button" onclick="input('8')">8</button>
-      <button class="button" onclick="input('9')">9</button>
-      <button class="button" onclick="input('+')">+</button>
-      <button class="button" onclick="input('4')">4</button>
-      <button class="button" onclick="input('5')">5</button>
-      <button class="button" onclick="input('6')">6</button>
-      <button class="button" onclick="input('-')">-</button>
-      <button class="button" onclick="input('1')">1</button>
-      <button class="button" onclick="input('2')">2</button>
-      <button class="button" onclick="input('3')">3</button>
-      <button class="button" onclick="input('*')">*</button>
-      <button class="button" onclick="input('0')">0</button>
-      <button class="button" onclick="input('.')">.</button>
-      <button class="button" onclick="clearInput()">C</button>
-      <button class="button" onclick="input('/')">/</button>
-      <button class="button" onclick="calculate()">=</button>
-    </div>
+    <label for="count">回数:</label>
+    <input type="number" id="count" min="1"><br>
+    <button onclick="addOne()">計算する</button><br>
+    <p id="result"></p>
     <script>
-      function input(value) {
-        document.getElementById("input").value += value;
-      }
-      function clearInput() {
-        document.getElementById("input").value = "";
-      }
-      function calculate() {
-        var result = eval(document.getElementById("input").value);
-        document.getElementById("input").value = result;
+      function addOne() {
+        var count = parseInt(document.getElementById("count").value);
+        var result = 0;
+        for (var i = 0; i < count; i++) {
+          result += 1;
+        }
+        document.getElementById("result").innerHTML = "結果: " + result;
       }
     </script>
   </body>
